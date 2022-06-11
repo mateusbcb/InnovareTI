@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/products', [IndexController::class, 'products'])->name('products');
+Route::get('/about', [IndexController::class, 'about'])->name('about');
+Route::get('/contacts', [IndexController::class, 'contacts'])->name('contacts');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+/**
+ * Areas restritas
+ */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

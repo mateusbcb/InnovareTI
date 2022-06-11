@@ -1,3 +1,51 @@
+/* ./resources/css/app.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    /*
+        Global
+    */
+    * {
+        @apply text-gray-800 font-normal text-lg
+    }
+
+    h1 {
+        @apply text-5xl font-semibold text-inovare-text-blue-1
+    }
+    h2 {
+        @apply text-4xl font-semibold text-inovare-text-blue-2
+    }
+    h3 {
+        @apply text-xl font-medium text-gray-400
+    }
+
+    /*
+        Principal
+    */
+    
+    /* Menu */
+    header .menu{
+        @apply bg-inovare-bg-menu text-gray-800 font-extrabold text-center py-4 text-xl flex justify-around items-center
+    }
+
+    /* Body */
+    main {
+        @apply w-10/12 mx-auto
+    }
+
+    /* Footer */
+    footer .footer{
+        @apply bg-inovare-bg-footer text-gray-200 text-center py-4 bottom-0 clear-both
+    }
+}
+
+@layer components {
+    /*
+        Botoes
+    */
+    .btn-primary {
+        @apply py-3 px-4 bg-inovare-btn-primary text-white font-bold rounded-sm hover:bg-inovare-btn-primary-hover
+    }
+}
