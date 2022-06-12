@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/products', [IndexController::class, 'products'])->name('products');
 Route::get('/about', [IndexController::class, 'about'])->name('about');
 Route::get('/contacts', [IndexController::class, 'contacts'])->name('contacts');
 
+
 /**
  * Areas restritas
  */
@@ -25,8 +27,10 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+])->prefix('/admin')->group(function () {
+    
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+    Route::get('/refunds', [AdminController::class, 'refunds'])->name('admin.refunds');
+    Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
 });

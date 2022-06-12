@@ -1,12 +1,12 @@
 @extends('layouts.index')
 
-@section('title', 'Principal')
+@section('title', 'Contatos')
 
 @section('content')
     <div class="text-center my-28">
         <h1 class="my-5">Contatos</h1>
 
-        <p>Entre em contato</p>
+        <p>Entre em contatos</p>
 
         <button class="btn-primary mt-5">
             <div class="flex items-center text-white">

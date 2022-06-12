@@ -8,7 +8,7 @@
         Global
     */
     * {
-        @apply text-gray-800 font-normal text-lg
+        @apply font-normal text-lg
     }
 
     h1 {
@@ -21,31 +21,113 @@
         @apply text-xl font-medium text-gray-400
     }
 
+    input, textarea, select {
+        @apply  bg-inovare-bg-input p-2 outline-none rounded-r-lg
+    }
+
+    input:focus, textarea:focus, select:focus {
+        @apply outline outline-2 outline-blue-500
+    }
+
+
+
     /*
         Principal
     */
     
     /* Menu */
-    header .menu{
+    #user header .menu{
         @apply bg-inovare-bg-menu text-gray-800 font-extrabold text-center py-4 text-xl flex justify-around items-center
     }
 
     /* Body */
-    main {
+    #user main {
         @apply w-10/12 mx-auto
     }
 
     /* Footer */
-    footer .footer{
+    #user footer .footer{
         @apply bg-inovare-bg-footer text-gray-200 text-center py-4 bottom-0 clear-both
+    }
+
+    /* ---------------------- *
+
+    /*
+        Admin
+    */
+    #admin header .menu{
+        @apply bg-gray-700 text-gray-100 font-extrabold py-4 text-xl w-2/12 h-screen float-left
+    }
+
+    /* Body */
+    #admin main {
+        @apply w-10/12 mx-auto bg-white my-10 float-left
+    }
+
+    /* Footer */
+    #admin footer .footer{
+        @apply bg-inovare-bg-footer text-gray-200 text-center py-4 clear-both
     }
 }
 
 @layer components {
     /*
-        Botoes
+        Botões
     */
     .btn-primary {
         @apply py-3 px-4 bg-inovare-btn-primary text-white font-bold rounded-sm hover:bg-inovare-btn-primary-hover
+    }
+
+    /*
+        Card
+    */
+    .card {
+        @apply bg-white shadow rounded p-4 mx-2 my-4
+    }
+
+    /*
+        Table
+    */
+    .table {
+        @apply w-full text-center
+    }
+
+    .table tr {
+        @apply border-b-2 border-gray-400 
+    }
+
+    .table td {
+        @apply text-lg px-2
+    }
+
+    .table th {
+        @apply font-bold text-lg px-2
+    }
+
+    .table .primary {
+        @apply text-primary-text bg-primary-bg border-primary-border
+    }
+    
+    .table .secondary {
+        @apply text-secondary-text bg-secondary-bg border-secondary-border
+    }
+
+    /*
+        Alerts
+    */
+    .alert {
+        @apply w-full p-4 rounded border-2 flex items-center justify-between flex-row-reverse
+    }
+    .alert-success {
+        @apply bg-success-bg text-success-text border-success-border
+    }
+    .alert-danger {
+        @apply bg-danger-bg text-danger-text border-danger-border
+    }
+    .alert-warning {
+        @apply bg-warning-bg text-warning-text border-warning-border
+    }
+    .alert-info {
+        @apply bg-info-bg text-info-text border-info-border
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.index')
 
-@section('title', 'Principal')
+@section('title', 'Sobre')
 
 @section('content')
     <div class="text-center my-28">

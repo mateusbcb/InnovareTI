@@ -14,19 +14,26 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
-<body>
+<body id="user">
     <header>
         <nav class="menu">
             <img src="{{ asset('img/logo-dark.png') }}" alt="">
-
-            <ul class="float-left">
-                <li class="space-x-4">
+            
+            <ul class="float-left flex space-x-4">
+                <li>
                     <a href="{{ route('home') }}">Home</a>
+                </li>
+                <li>
                     <a href="{{ route('products') }}">Produtos</a>
+                </li>
+                <li>
                     <a href="{{ route('about') }}">Sobre</a>
+                </li>
+                <li>
                     <a href="{{ route('contacts') }}">Contatos</a>
                 </li>
             </ul>
+
             @auth
                 <ul class="float-right">
                     <li class="space-x-4">
@@ -37,9 +44,11 @@
 
             @guest
                 
-                <ul class="float-right">
-                    <li class="space-x-4">
+                <ul class="float-right flex space-x-4">
+                    <li>
                         <a href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li>
                         <a href="{{ route('register') }}">Register</a>
                     </li>
                 </ul>
@@ -50,15 +59,23 @@
     {{--  Feedback da pagina  --}}
 
     <main>
+        @component('components.messages')
+            
+        @endcomponent
+        @component('components.messages')
+            
+        @endcomponent
         @yield('content')
     </main>
 
     <footer>
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        @yield('scripts')
         
         <div class="footer">
-            Todos os direitos reservados
+            © InnovareTI Soluções Inovadoras. Todos os direitos reservados. 2015-2022
         </div>
     </footer>
 </body>
