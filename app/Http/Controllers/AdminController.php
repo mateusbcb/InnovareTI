@@ -9,20 +9,46 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $is_admin = auth()->user()->admin;
+
+        if ($is_admin == 1) {
+            return view('admin.index');
+        }
+
+        return view('user.dashboard');
     }
-    
+
     public function products()
     {
-        return view('admin.products');
+        $is_admin = auth()->user()->admin;
+
+        if ($is_admin == 1) {
+            return view('admin.products');
+        }
+
+        return view('user.dashboard');
     }
+
     public function refunds()
     {
-        return view('admin.refunds');
+        $is_admin = auth()->user()->admin;
+
+        if ($is_admin == 1) {
+            return view('admin.refunds');
+        }
+
+        return view('user.dashboard');
     }
+
     public function users()
     {
-        return view('admin.users');
+        $is_admin = auth()->user()->admin;
+
+        if ($is_admin == 1) {
+            return view('admin.users');
+        }
+
+        return view('user.dashboard');
     }
 
 }

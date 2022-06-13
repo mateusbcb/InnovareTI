@@ -7,12 +7,13 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
+    mode: 'jit',
     purge: [
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {
             fontFamily: {
@@ -30,26 +31,26 @@ module.exports = {
                 'success-text': '#0f5132',
                 'success-bg': '#d1e7dd',
                 'success-border': '#badbcc',
-                
+
                 'danger-text': '#842029',
                 'danger-bg': '#f8d7da',
                 'danger-border': '#f5c2c7',
-                
+
                 'primary-text': '#084298',
                 'primary-bg': '#cfe2ff',
                 'primary-border': '#b6d4fe',
-                
+
                 'secondary-text': '#41464b',
                 'secondary-bg': '#e2e3e5',
                 'secondary-border': '#d3d6d8',
-                
+
                 'warning-text': '#664d03',
                 'warning-bg': '#fff3cd',
                 'warning-border': '#ffecb5',
-                
+
                 'info-text': '#055160',
                 'info-bg': '#cff4fc',
-                'info-border': '#b6effb',   
+                'info-border': '#b6effb',
             }
         },
     },

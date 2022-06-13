@@ -8,7 +8,11 @@
         Global
     */
     * {
-        @apply font-normal text-lg
+        @apply font-normal text-lg dark:text-gray-100
+    }
+
+    body {
+        @apply bg-white dark:bg-gray-800
     }
 
     h1 {
@@ -34,10 +38,10 @@
     /*
         Principal
     */
-    
+
     /* Menu */
     #user header .menu{
-        @apply bg-inovare-bg-menu text-gray-800 font-extrabold text-center py-4 text-xl flex justify-around items-center
+        @apply bg-inovare-bg-menu text-gray-800 font-extrabold text-center py-4 text-xl flex justify-around items-center dark:bg-gray-800
     }
 
     /* Body */
@@ -61,7 +65,7 @@
 
     /* Body */
     #admin main {
-        @apply w-10/12 mx-auto bg-white my-10 float-left
+        @apply w-10/12 mx-auto bg-white my-10 float-left dark:bg-gray-800
     }
 
     /* Footer */
@@ -82,7 +86,7 @@
         Card
     */
     .card {
-        @apply bg-white shadow rounded p-4 mx-2 my-4
+        @apply bg-white shadow rounded p-4 mx-2 my-4 dark:bg-gray-900
     }
 
     /*
@@ -93,7 +97,7 @@
     }
 
     .table tr {
-        @apply border-b-2 border-gray-400 
+        @apply border-b-2 border-gray-400
     }
 
     .table td {
@@ -107,9 +111,9 @@
     .table .primary {
         @apply text-primary-text bg-primary-bg border-primary-border
     }
-    
+
     .table .secondary {
-        @apply text-secondary-text bg-secondary-bg border-secondary-border
+        @apply text-secondary-text bg-secondary-bg border-secondary-border dark:bg-gray-500
     }
 
     /*
