@@ -22,7 +22,6 @@
             </ul>
 
             @guest
-
                 <ul class="float-right flex space-x-4">
                     <li>
                         <a href="{{ route('login') }}">Login</a>
@@ -34,16 +33,39 @@
             @endguest
 
             @auth
-                <ul class="float-right">
-                    <li class="space-x-4">
-                        <a href="{{ route('login') }}">
-                            @if(auth()->user()->admin == 1)
-                                Admin
-                            @else
-                                Área do cliente
-                            @endif
-                        </a>
+                <ul id="subMenu" class=" w-48">
+                    <li>
+                        <div>
+                            <a href="{{ route('user.profile') }}">
+                                {{ auth()->user()->name }}
+                            </a>
+                        </div>
+                        <ul class="w-48">
+                            <li>
+                                <div>
+                                    @if(auth()->user()->admin == 1)
+                                        <a href="{{ route('dashboard') }}">
+                                            Admin
+                                        </a>
+                                    @else
+                                        <a href="{{ route('user.dashboard') }}">
+                                            Área do cliente
+                                        </a>
+                                    @endif
+                                </div>
+                            </li>
+
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+                                    <button type="submit">
+                                        Sair
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
                     </li>
+
                 </ul>
             @endauth
         </nav>
@@ -55,21 +77,18 @@
         @component('components.messages')
 
         @endcomponent
-        @component('components.messages')
 
-        @endcomponent
         @yield('content')
     </main>
 
-    <footer>
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        @yield('scripts')
-
-        <div class="footer">
-            © InnovareTI Soluções Inovadoras. Todos os direitos reservados. 2015-2022
-        </div>
-    </footer>
-</body>
+    @section('scripts')
+    <script>
+        $( function() {
+          $( "#subMenu" ).menu({
+            position: { my: "bottom", at: "top" },
+            icons: { submenu: "ui-icon-caret-1-s" }
+          });
+        });
+    </script>
+    @endsection
 @endsection

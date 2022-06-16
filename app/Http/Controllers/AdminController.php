@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
+use App\Models\Requests;
+use App\Models\User;
 
 
 class AdminController extends Controller
@@ -12,10 +15,11 @@ class AdminController extends Controller
         $is_admin = auth()->user()->admin;
 
         if ($is_admin == 1) {
+
             return view('admin.index');
         }
 
-        return view('user.dashboard');
+        return redirect()->route('user.dashboard')->with('error', 'Area restrita para administradores do sistema');
     }
 
     public function products()
@@ -23,10 +27,15 @@ class AdminController extends Controller
         $is_admin = auth()->user()->admin;
 
         if ($is_admin == 1) {
-            return view('admin.products');
+
+            $products = new Products();
+
+            return view('admin.products', [
+                'products' => $products->all()
+            ]);
         }
 
-        return view('user.dashboard');
+        return redirect()->route('user.dashboard')->with('error', 'Area restrita para administradores do sistema');
     }
 
     public function refunds()
@@ -34,10 +43,15 @@ class AdminController extends Controller
         $is_admin = auth()->user()->admin;
 
         if ($is_admin == 1) {
-            return view('admin.refunds');
+
+            $refunds = new Requests();
+
+            return view('admin.refunds', [
+                'refunds' => $refunds->all()
+            ]);
         }
 
-        return view('user.dashboard');
+        return redirect()->route('user.dashboard')->with('error', 'Area restrita para administradores do sistema');
     }
 
     public function users()
@@ -45,10 +59,15 @@ class AdminController extends Controller
         $is_admin = auth()->user()->admin;
 
         if ($is_admin == 1) {
-            return view('admin.users');
+
+            $users = new User();
+
+            return view('admin.users', [
+                'users' => $users->all()
+            ]);
         }
 
-        return view('user.dashboard');
+        return redirect()->route('user.dashboard')->with('error', 'Area restrita para administradores do sistema');
     }
 
 }

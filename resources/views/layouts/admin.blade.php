@@ -38,7 +38,8 @@
                     <ul class="absolute bottom-2 flex justify-between w-2/12 px-5">
                         <li>
                             <a href="{{ route('login') }}" class="flex items-center">
-                                <img src="https://i.pravatar.cc/150?img=".{{ auth()->user()->id }}."" class="rounded-full w-7 h-7 mr-3">
+                                {{--  <img src="https://doodleipsum.com/700x933/avatar-3?i=2109956eaa8fe527c053de5986983687" class="rounded-full w-7 h-7 mr-3" />  --}}
+                                <img src="https://i.pravatar.cc/150?img=".{{ auth()->user()->id }}."" class="rounded-full w-7 h-7 mr-3" />
                                 <span class="text-sm">
                                     {{ auth()->user()->name }}
                                 </span>
@@ -71,28 +72,25 @@
                     <input type="search" class="w-full shadow-inner">
                 </div>
 
+                {{--  Dark Mode  --}}
+                {{--  <div class="flex justify-center">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" type="checkbox" role="switch" id="darkMode">
+                        <label class="form-check-label inline-block text-gray-800" for="flexSwitchCheckDefault">Dark Mode</label>
+                    </div>
+                </div>  --}}
             </div>
 
         </div>
 
-        {{--  Feedback da pagina  --}}
-
         <main>
+            {{--  Feedback da pagina  --}}
             @component('components.messages')
 
             @endcomponent
+
+            {{--  conteudo Principal  --}}
             @yield('content')
         </main>
 
-        <footer>
-            <!-- Scripts -->
-            <script src="{{ asset('js/app.js') }}" defer></script>
-
-            @yield('scripts')
-
-            <div class="footer">
-                © InnovareTI Soluções Inovadoras. Todos os direitos reservados. 2015-2022
-            </div>
-        </footer>
-    </body>
 @endsection

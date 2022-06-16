@@ -28,9 +28,13 @@ Route::get('/contacts', [IndexController::class, 'contacts'])->name('contacts');
  * Areas restritas
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+
     Route::prefix('/user')->group(function () {
+        Route::get('/', [UserController::class, 'dashboard'])->name('user.dashboard');
         Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
         Route::get('/requests', [UserController::class, 'requests'])->name('user.requests');
+        Route::get('/refund-request', [UserController::class, 'refund_request'])->name('user.refund_request');
+        Route::post('/refund-request', [UserController::class, 'send_refund_request'])->name('user.send_refund_request');
     });
 
     Route::prefix('/admin')->group(function () {
@@ -39,4 +43,5 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         Route::get('/refunds', [AdminController::class, 'refunds'])->name('admin.refunds');
         Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
     });
+
 });

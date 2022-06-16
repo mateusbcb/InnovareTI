@@ -10,6 +10,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Requests;
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -28,6 +30,11 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function requests()
+    {
+        return $this->hasOne(Requests::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

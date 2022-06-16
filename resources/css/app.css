@@ -78,8 +78,17 @@
     /*
         Botões
     */
+    .btn {
+        @apply py-3 px-4 bg-transparent text-center
+    }
     .btn-primary {
         @apply py-3 px-4 bg-inovare-btn-primary text-white font-bold rounded-sm hover:bg-inovare-btn-primary-hover
+    }
+    .btn-success {
+        @apply py-3 px-4 bg-green-400 text-white font-bold rounded-sm hover:bg-green-800
+    }
+    .btn-secondary {
+        @apply py-3 px-4 bg-gray-400 text-white font-bold rounded-sm hover:bg-gray-800
     }
 
     /*
@@ -133,5 +142,31 @@
     }
     .alert-info {
         @apply bg-info-bg text-info-text border-info-border
+    }
+
+    /*
+        badge
+    */
+
+    .badge {
+        @apply px-4 rounded-2xl
+    }
+    .badge-primary {
+        @apply bg-inovare-btn-primary text-white
+    }
+    .badge-secondary {
+        @apply bg-secondary-bg text-secondary-text
+    }
+    .badge-success {
+        @apply bg-success-bg text-success-text
+    }
+    .badge-warning {
+        @apply bg-warning-bg text-warning-text
+    }
+    .badge-danger {
+        @apply bg-danger-bg text-danger-text
+    }
+    .badge-info {
+        @apply bg-info-bg text-info-text
     }
 }

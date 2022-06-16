@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="text-center my-10">
-        <h1>{{ auth()->user()->name }}</h1>
+        <h1>Meus Pedidos</h1>
     </div>
 
     <div class="grid grid-cols-5">
@@ -17,64 +17,61 @@
         </div>
 
         <div class="card col-span-4">
-            <h2 class="underline">Pedidos</h2>
-
             <table class="table mx-auto my-5">
                 <thead>
                     <tr>
                         <th>SKU</th>
                         <th>Nome do Pedido</th>
-                        <th>Data do Pedido</th>
+                        <th>Data da Compra</th>
+                        <th>Preço</th>
                         <th>Status</th>
                         <th>Ultima atualização</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    <tr>
-                        <td>123</td>
-                        <td>Pedido 1</td>
-                        <td>12-06-2021 22:32</td>
-                        <td>Concluido</td>
-                        <td>12-06-2021 22:32</td>
-                        <td>
-                            <div>
-                                <button>Detalhes</button>
-                                <button>Pedir reembolso</button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>456</td>
-                        <td>Pedido 2</td>
-                        <td>12-06-2021 22:32</td>
-                        <td>Em Reembolso</td>
-                        <td>12-06-2021 22:40</td>
-                        <td>
-                            <div>
-                                <button>Detalhes</button>
-                                <button>Pedir reembolso</button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>789</td>
-                        <td>Pedido 3</td>
-                        <td>12-06-2021 22:40</td>
-                        <td>Em Analise</td>
-                        <td>12-06-2021 22:41</td>
-                        <td>
-                            <div>
-                                <button>Detalhes</button>
-                                <button>Pedir reembolso</button>
-                            </div>
-                        </td>
-                    </tr>
-
+                    @foreach($requests as $key => $request)
+                        <tr>
+                            <td>{{ $request->product->sku }}</td>
+                            <td>{{ $request->product->name }}</td>
+                            <td>{{ $request->created_at }}</td>
+                            <td>R$ {{ number_format($request->price, 2, ',', '.') }}</td>
+                            <td>
+                                @switch($request->status)
+                                    @case(1)
+                                        <span class="badge badge-success">
+                                            Entregue
+                                        </span>
+                                        @break
+                                    @case(2)
+                                        <span class="badge badge-warning">
+                                            Em Análise
+                                        </span>
+                                        @break
+                                @endswitch
+                            </td>
+                            <td>{{ $request->updated_at }}</td>
+                            <td>
+                                <div class="flex justify-start">
+                                    <a href="#" class="btn text-blue-600" title="Informações">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a href="{{ route('user.refund_request') }}" class="btn btn-primary" title="Pedir Reembolso">
+                                Pedir Reembolso
+                            </a>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
 

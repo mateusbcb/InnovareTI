@@ -8,7 +8,8 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
     mode: 'jit',
-    purge: [
+    content: [
+        require('@tailwindcss/forms'),
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
