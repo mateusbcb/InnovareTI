@@ -1,64 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Teste InovareTI
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+#### Objetivo:
 
-## About Laravel
+Desenvolver uma aplicação Laravel ou PHP Puro, onde seja possível fazer o processo de reembolso de despesas. 
+Autenticação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Permissão: Funcionário pode fazer pedidos de reembolso, gestores podem aprovar os pedidos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Tela de digitação de um novo reembolso:
+- Deverá pegar automaticamente o usuário logado
+- Informar o tipo de despesa (deverá ter um cadastro de tipos)
+- Informar o valor
+- O formulário deve permitir mais de um tipo de despesa por vez
+Tela de aprovação:
+- Irá exibir uma lista de reembolsos pendentes
+- Permitir o gestor ver os detalhes
+- Permitir o gestor aprovar ou reprovar
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Para o front pode usar o que achar melhor, um template, VueJS e ou Bootstrap.
 
-## Learning Laravel
+----------
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### tecnologias utilizadas
+- Composer
+- Wamp server
+- VsCode
+- PHP 7.4
+- laravel 8x
+- npm (gerenciador de pacotes) - node.js
+  
+#### Bibliotecas / Packages
+- Jetstream (laravel/jetstream) + Livewire
+- tailwindcss 3x
+- Jquery-3.6.0
+- Jquery-ui
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+----------
 
-## Laravel Sponsors
+#### Instalação
+Para instalação, irei partir do pressuposto que já tenha instalado e configurado o básico para rodar o PHP com o Laravel. Lembrando que eu utilizei as tecnologias ja citadas a cima.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1º Faça o clone desse repositório
 
-### Premium Partners
+2º Crie um Banco de Dados MySql (aqui eu utilizei o PHPMyAdmin para a criação).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+3º Duplique o arquivo ".env.example" e renomeie para ".env".
 
-## Contributing
+4º Dentro do arquivo ".env" procure as configurações de Banco de Dados DB_CONNECTION=mysql DB_HOST=[NOME DO SEU HOST] DB_PORT=3306 DB_DATABASE=[NOME DO BANCO CRIADO NA ETAPA 2] DB_USERNAME=[USUARIO DO BANCO] DB_PASSWORD=[SENHA DO BANCO]
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5º Irá precisar gerar uma "APP_KEY", abra em um terminal/CMD/Shell e navegue até a Raiz desse projeto, onde se localiza o arquivo artisan e execute o seguinte comando
 
-## Code of Conduct
+`php artisan key:generate`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6º Agora precisa rodar as migration e para o banco não vir vazio pode rodar o seguinte comando
 
-## Security Vulnerabilities
+`php artisan migrate:fresh --seed`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Esse comando irá criar as tabelas no DB e popular com 40 produtos aleatórios e um usuário Admin.
 
-## License
+Usuário: admin@gmail.com
+Senha: admin
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7º Por final basta rodar o servidor local do Laravel com o comando:
+
+`php artisan serve`
+
+----------
+
+Por padrão o servidor iniciará no endereço: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+Se tudo ocorreu bem é para estar vendo a página inicial do Teste.
+
+Obrigado!
+Mateus Brandt
