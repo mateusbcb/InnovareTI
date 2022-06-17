@@ -46,7 +46,7 @@ class UserController extends Controller
         $user_id = auth()->user()->id;
 
         return view('user.refund-request', [
-            'requests' => $requests->where('user_id', $user_id)->get()
+            'requests' => $requests->where('user_id', $user_id)->where('status', 1)->get()
         ]);
     }
 
@@ -68,5 +68,23 @@ class UserController extends Controller
         }
 
         return redirect()->route('user.requests')->with('success', 'Reembolso enviado com sucesso, Aguardando Análise');
+    }
+
+    public function buy($id)
+    {
+        $user_id = auth()->user()->id;
+
+        $request = new Requests();
+
+        $product = Products::find($id);
+
+        $request->create([
+            'product_id' => $id,
+            'user_id' => $user_id,
+            'price' => $product->price,
+            'status' => 1
+        ]);
+
+        return redirect()->route('user.requests')->with('success', 'Compra realisada com sucesso!');
     }
 }

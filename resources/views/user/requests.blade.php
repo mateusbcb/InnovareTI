@@ -48,6 +48,16 @@
                                             Em Análise
                                         </span>
                                         @break
+                                    @case(3)
+                                        <span class="badge badge-danger">
+                                            Recusado
+                                        </span>
+                                        @break
+                                    @case(4)
+                                        <span class="badge badge-info">
+                                            Aceito
+                                        </span>
+                                        @break
                                 @endswitch
                             </td>
                             <td>{{ $request->updated_at }}</td>
@@ -65,8 +75,8 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="7">
-                            <a href="{{ route('user.refund_request') }}" class="btn btn-primary" title="Pedir Reembolso">
+                        <td colspan="7" class="py-4 text-right">
+                            <a href="{{ route('user.refund_request') }}" class="btn btn-primary">
                                 Pedir Reembolso
                             </a>
                         </td>

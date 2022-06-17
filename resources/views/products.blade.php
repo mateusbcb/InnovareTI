@@ -30,9 +30,9 @@
                 </div>
 
                 <div>
-                    <button class="btn-primary">
+                    <a href="{{ route('user.buy', ['id' => $product->id]) }}" class="btn-primary">
                         Comprar
-                    </button>
+                    </a>
                 </div>
             </div>
         @endforeach

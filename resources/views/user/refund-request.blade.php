@@ -25,17 +25,18 @@
                         <label for="name">
                             Nome
                         </label>
-                        <input type="text" name="name" id="name" placeholder="Nome" value="{{ auth()->user()->name }}">
+                        <input type="text" name="name" id="name" placeholder="Nome" value="{{ auth()->user()->name }}" readonly>
 
                         <label for="address">
                             Endereço
                         </label>
-                        <input type="text" name="addres" id="address" placeholder="Endereço" value="Endereço">
+                        <input type="text" name="addres" id="address" placeholder="Endereço"
+                            value="@php foreach (json_decode(auth()->user()->address) as $endereco) { echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;} @endphp" readonly>
 
                         <label for="phone">
                             Telefone
                         </label>
-                        <input type="tel" name="phone" id="phone" placeholder="Telefone" value="(99) 99999-9999">
+                        <input type="tel" name="phone" id="phone" placeholder="Telefone" value="{{ auth()->user()->phone }}" readonly>
                     </div>
                 </div>
 
@@ -49,7 +50,7 @@
                             <select name="products[]" id="products" class="" onchange="updatePrice(this)">
                                 <option value="--">Selecione o Produto</option>
                                 @foreach($requests as $key => $request)
-                                    <option value="{{ $request->product->id }}">{{ $request->product->name }}</option>
+                                    <option value="{{ $request->product->id }}" id="{{ $request->id }}">{{ $request->product->name }}</option>
                                 @endforeach
                             </select>
 
@@ -80,7 +81,7 @@
                         </textarea>
 
                         <label for="photo">
-                            Foto do Produto (se necessário para analise)
+                            Foto do Produto (se necessário para análise)
                         </label>
                         <input type="image" name="photo" id="photo">
                     </div>
@@ -92,7 +93,7 @@
                             Enviar
                         </button>
 
-                        <a href="" class="btn btn-secondary">
+                        <a href="{{ route('user.requests') }}" class="btn btn-secondary">
                             Cancelar
                         </a>
                     </div>
@@ -122,7 +123,7 @@
             // verifica se o value do evento não é '--'
             if (event.value != '--') {
                 // pega o 'price' do json
-                var product_price = products[event.value-1].price;
+                var product_price = products[event.options.selectedIndex-1].price;
                 // pega o elemento pelo id dinâmico
                 document.getElementById(price_id).value = product_price;
 

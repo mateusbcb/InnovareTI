@@ -35,6 +35,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         Route::get('/requests', [UserController::class, 'requests'])->name('user.requests');
         Route::get('/refund-request', [UserController::class, 'refund_request'])->name('user.refund_request');
         Route::post('/refund-request', [UserController::class, 'send_refund_request'])->name('user.send_refund_request');
+        Route::get('/buy/{id}', [UserController::class, 'buy'])->name('user.buy');
     });
 
     Route::prefix('/admin')->group(function () {
@@ -42,6 +43,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
         Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
         Route::get('/refunds', [AdminController::class, 'refunds'])->name('admin.refunds');
         Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+
+        Route::get('/refund-approve/{id}', [AdminController::class, 'refund_approve'])->name('admin.refund_approve');
+        Route::get('/refund-deny/{id}', [AdminController::class, 'refund_deny'])->name('admin.refund_deny');
     });
 
 });

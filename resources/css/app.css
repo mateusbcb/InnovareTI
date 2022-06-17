@@ -169,4 +169,9 @@
     .badge-info {
         @apply bg-info-bg text-info-text
     }
+
+    /*
+        Paginate
+    */
+
 }

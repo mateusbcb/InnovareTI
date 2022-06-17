@@ -28,6 +28,16 @@
                         <td>{{ auth()->user()->email }}</td>
                     </tr>
                     <tr>
+                        <th>Endereço</th>
+                        <td>
+                            @php
+                                foreach (json_decode(auth()->user()->address) as $endereco) {
+                                    echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;
+                                }
+                            @endphp
+                        </td>
+                    </tr>
+                    <tr>
                         <th>Data de Criação</th>
                         <td>{{ auth()->user()->created_at }}</td>
                     </tr>
