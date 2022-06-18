@@ -82,7 +82,7 @@
                             <label for="invoice">
                                 Nota Fiscal
                             </label>
-                            <input type="file" name="invoices[]" id="invoice" class="">
+                            <input type="file" name="invoices[]" id="invoice" class="file:m-0 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold">
                         </div>
 
                     </div>
@@ -103,7 +103,7 @@
                         <label for="photo">
                             Foto do Produto (se necessário para análise)
                         </label>
-                        <input type="file" name="photo" id="photo" class="">
+                        <input type="file" name="photo" id="photo" class="file:m-0 file:py-2 file:px-4 file:border-0 file:text-sm file:font-semibold">
                     </div>
                 </div>
 

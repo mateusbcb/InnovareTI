@@ -29,13 +29,15 @@ class UserSeeder extends Seeder
             ]
         ];
 
+
         User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'admin' => 1,
             'address' => json_encode($address),
             'phone' => '81165116161',
-            'password' => Hash::make('admin')
+            'password' => Hash::make('admin'),
+            'profile_photo_path' => 'https://i.pravatar.cc/300?img='.rand(1, 70)
         ]);
     }
 }

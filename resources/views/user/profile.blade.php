@@ -17,33 +17,56 @@
         </div>
 
         <div class="card col-span-4">
-            <table class="table w-1/2 mx-auto my-5">
+            <table class="w-full">
                 <tbody>
                     <tr>
-                        <th>Nome</th>
-                        <td>{{ auth()->user()->name }}</td>
-                    </tr>
-                    <tr>
-                        <th>E-mail</th>
-                        <td>{{ auth()->user()->email }}</td>
-                    </tr>
-                    <tr>
-                        <th>Endereço</th>
-                        <td>
-                            @php
-                                foreach (json_decode(auth()->user()->address) as $endereco) {
-                                    echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;
-                                }
-                            @endphp
+                        <td rowspan="6" class="">
+                            <img src="{{ auth()->user()->profile_photo_path }}" alt="{{ auth()->user()->name }}" class="w-full">
                         </td>
                     </tr>
-                    <tr>
-                        <th>Data de Criação</th>
-                        <td>{{ auth()->user()->created_at }}</td>
+                    <tr class="bg-gray-200">
+                        <th>Nome</th>
+                        <td>
+                            <div class="py-5 px-2 rounded-l-lg shadow-inner  bg-white">
+                                {{ auth()->user()->name }}
+                            </div>
+                        </td>
                     </tr>
-                    <tr>
+                    <tr class="bg-gray-200">
+                        <th>E-mail</th>
+                        <td>
+                            <div class="py-5 px-2 rounded-l-lg shadow-inner  bg-white">
+                                {{ auth()->user()->email }}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-200">
+                        <th>Endereço</th>
+                        <td>
+                            <div class="py-5 px-2 rounded-l-lg shadow-inner  bg-white">
+                                @php
+                                    foreach (json_decode(auth()->user()->address) as $endereco) {
+                                        echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;
+                                    }
+                                @endphp
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-200">
+                        <th>Data de Criação</th>
+                        <td>
+                            <div class="py-5 px-2 rounded-l-lg shadow-inner  bg-white">
+                                {{ auth()->user()->created_at }}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-200">
                         <th>Ultima atualização</th>
-                        <td>{{ auth()->user()->updated_at }}</td>
+                        <td>
+                            <div class="py-5 px-2 rounded-l-lg shadow-inner  bg-white">
+                                {{ auth()->user()->updated_at }}
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
