@@ -59,12 +59,17 @@ class UserController extends Controller
         $user_id = auth()->user()->id;
 
         for ($i=0; $i < $products; $i++) {
-            $requests->create([
+
+            $requests->where('user_id', $user_id)
+            ->where('product_id', $request->products[$i])
+            ->where('status', 1)
+            ->update([
                 'product_id' => $request->products[$i],
                 'user_id' => $user_id,
                 'price' => $request->prices[$i],
                 'status' => 2
             ]);
+
         }
 
         return redirect()->route('user.requests')->with('success', 'Reembolso enviado com sucesso, Aguardando Análise');
