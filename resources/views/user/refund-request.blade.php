@@ -48,8 +48,12 @@
                         <label for="address">
                             Endereço
                         </label>
-                        <input type="text" name="addres" id="address" placeholder="Endereço"
-                            value="@php foreach (json_decode(auth()->user()->address) as $endereco) { echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;} @endphp" readonly>
+                        @if(auth()->user()->address != null)
+                            <input type="text" name="addres" id="address" placeholder="Endereço"
+                                value="@php foreach (json_decode(auth()->user()->address) as $endereco) { echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;} @endphp" readonly>
+                        @else
+                            <input type="text" name="addres" id="address" placeholder="Endereço" value="" readonly>
+                        @endif
 
                         <label for="phone">
                             Telefone
