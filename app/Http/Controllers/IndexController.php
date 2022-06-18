@@ -16,7 +16,7 @@ class IndexController extends Controller
     {
         $products = new Products();
         return view('products', [
-            'products' => $products->all()
+            'products' => $products->paginate(8)
         ]);
     }
 

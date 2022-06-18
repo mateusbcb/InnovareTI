@@ -25,7 +25,7 @@
 
             <tbody>
                 @foreach($products as $key => $product)
-                    <tr>
+                    <tr class="striped">
                         <th>{{ $product->id }}</th>
                         <td>{{ $product->sku }}</td>
                         <td>{{ $product->name }}</td>

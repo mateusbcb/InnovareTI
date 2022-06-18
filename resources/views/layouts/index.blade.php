@@ -42,19 +42,18 @@
                         </div>
                         <ul class="w-48">
                             <li>
-                                <div>
-                                    @if(auth()->user()->admin == 1)
-                                        <a href="{{ route('dashboard') }}">
-                                            Admin
-                                        </a>
-                                    @else
-                                        <a href="{{ route('user.dashboard') }}">
-                                            Área do cliente
-                                        </a>
-                                    @endif
-                                </div>
+                                <a href="{{ route('user.dashboard') }}">
+                                    Minha conta
+                                </a>
                             </li>
-
+                            @if(auth()->user()->admin == 1)
+                                <li>
+                                    <a href="{{ route('dashboard') }}">
+                                        Painel do Admin
+                                    </a>
+                                </li>
+                            @endif
+                            <hr>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}" x-data>
                                     @csrf

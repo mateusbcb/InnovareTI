@@ -16,7 +16,25 @@
             @endcomponent
         </div>
 
+
         <div class="card col-span-4">
+            <div class="card px-5 text-gray-500">
+                <h3>Política de reembolso</h3>
+
+                <ol class="list-decimal list-inside">
+                    <li>
+                        Produto precisa estar dentro do período de <strong> 30 </strong> dias depois do recebimento
+                    </li>
+                    <li>
+                        Produto não pode conter avarias físicas ou de mal uso
+                    </li>
+                </ol>
+                <br>
+                <p class="text-sm">
+                    Todos os pedidos serão avaliados individualmente
+                </p>
+
+            </div>
             <form action="{{ route('user.send_refund_request') }}" method="post">
                 @csrf
 
@@ -50,7 +68,9 @@
                             <select name="products[]" id="products" class="" onchange="updatePrice(this)">
                                 <option value="--">Selecione o Produto</option>
                                 @foreach($requests as $key => $request)
-                                    <option value="{{ $request->product->id }}" id="{{ $request->id }}">{{ $request->product->name }}</option>
+                                    @if( $request->created_at->diffInDays(now()) <= 30 )
+                                        <option value="{{ $request->product->id }}" id="{{ $request->id }}">{{ $request->product->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
 
@@ -62,7 +82,7 @@
                             <label for="invoice">
                                 Nota Fiscal
                             </label>
-                            <input type="image" name="invoices[]" id="invoice">
+                            <input type="file" name="invoices[]" id="invoice" class="">
                         </div>
 
                     </div>
@@ -83,7 +103,7 @@
                         <label for="photo">
                             Foto do Produto (se necessário para análise)
                         </label>
-                        <input type="image" name="photo" id="photo">
+                        <input type="file" name="photo" id="photo" class="">
                     </div>
                 </div>
 

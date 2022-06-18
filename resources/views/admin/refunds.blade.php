@@ -26,7 +26,7 @@
 
             <tbody>
                 @foreach($refunds as $key => $refund)
-                    <tr>
+                    <tr class="striped">
                         <th>{{ $refund->id }}</th>
                         <td>{{ $refund->product->sku }}</td>
                         <td>{{ $refund->product->name }}</td>

@@ -704,6 +704,17 @@ input:focus,  textarea:focus,  select:focus {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
+.table .striped {
+  cursor: default;
+}
+.table .striped:nth-child(even) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.table .striped:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
 .table td {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -826,9 +837,6 @@ input:focus,  textarea:focus,  select:focus {
   --tw-text-opacity: 1;
   color: rgb(5 81 96 / var(--tw-text-opacity));
 }
-/*
-        Paginate
-    */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -887,6 +895,9 @@ input:focus,  textarea:focus,  select:focus {
 }
 .float-left {
   float: left;
+}
+.m-2 {
+  margin: 0.5rem;
 }
 .my-28 {
   margin-top: 7rem;
@@ -1044,6 +1055,11 @@ input:focus,  textarea:focus,  select:focus {
 .h-10 {
   height: 2.5rem;
 }
+.h-min {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
 .h-7 {
   height: 1.75rem;
 }
@@ -1055,14 +1071,6 @@ input:focus,  textarea:focus,  select:focus {
 }
 .h-12 {
   height: 3rem;
-}
-.h-52 {
-  height: 13rem;
-}
-.h-min {
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1130,12 +1138,6 @@ input:focus,  textarea:focus,  select:focus {
 .w-12 {
   width: 3rem;
 }
-.w-\[300px\] {
-  width: 300px;
-}
-.w-\[300\] {
-  width: 300;
-}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1195,6 +1197,9 @@ input:focus,  textarea:focus,  select:focus {
 }
 .list-inside {
   list-style-position: inside;
+}
+.list-decimal {
+  list-style-type: decimal;
 }
 .list-disc {
   list-style-type: disc;
@@ -1373,13 +1378,13 @@ input:focus,  textarea:focus,  select:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
-}
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
+}
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 .bg-blue-700 {
   --tw-bg-opacity: 1;
@@ -1485,10 +1490,6 @@ input:focus,  textarea:focus,  select:focus {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1496,6 +1497,10 @@ input:focus,  textarea:focus,  select:focus {
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .px-5 {
   padding-left: 1.25rem;
@@ -1596,6 +1601,10 @@ input:focus,  textarea:focus,  select:focus {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1647,6 +1656,18 @@ input:focus,  textarea:focus,  select:focus {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-indigo-600 {
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity));
+}
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -1662,18 +1683,6 @@ input:focus,  textarea:focus,  select:focus {
 .text-green-500 {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
-}
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
-}
-.text-indigo-600 {
-  --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity));
 }
 .text-gray-600 {
   --tw-text-opacity: 1;
@@ -1698,6 +1707,10 @@ input:focus,  textarea:focus,  select:focus {
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+.line-through {
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -1797,6 +1810,42 @@ input:focus,  textarea:focus,  select:focus {
 }
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.before\:absolute::before {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:-inset-1::before {
+  content: var(--tw-content);
+  top: -0.25rem;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  left: -0.25rem;
+}
+
+.before\:block::before {
+  content: var(--tw-content);
+  display: block;
+}
+
+.before\:-skew-y-2::before {
+  content: var(--tw-content);
+  --tw-skew-y: -2deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.before\:-skew-y-3::before {
+  content: var(--tw-content);
+  --tw-skew-y: -3deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.before\:bg-pink-500::before {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
 .hover\:cursor-default:hover {

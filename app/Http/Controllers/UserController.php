@@ -35,7 +35,7 @@ class UserController extends Controller
         $user_id = auth()->user()->id;
 
         return view('user.requests', [
-            'requests' => $requests->where('user_id', $user_id)->get()
+            'requests' => $requests->where('user_id', $user_id)->paginate(10)
         ]);
     }
 

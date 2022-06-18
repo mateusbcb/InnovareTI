@@ -26,7 +26,7 @@
 
             <tbody>
                 @foreach($users as $key => $user)
-                    <tr>
+                    <tr class="striped">
                         <td>{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>

@@ -37,7 +37,7 @@
                 @auth
                     <ul class="absolute bottom-2 flex justify-between w-2/12 px-5">
                         <li>
-                            <a href="{{ route('login') }}" class="flex items-center">
+                            <a href="{{ route('user.profile') }}" class="flex items-center">
                                 {{--  <img src="https://doodleipsum.com/700x933/avatar-3?i=2109956eaa8fe527c053de5986983687" class="rounded-full w-7 h-7 mr-3" />  --}}
                                 <img src="https://i.pravatar.cc/150?img=".{{ auth()->user()->id }}."" class="rounded-full w-7 h-7 mr-3" />
                                 <span class="text-sm">
