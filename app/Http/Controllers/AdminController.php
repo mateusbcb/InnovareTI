@@ -39,7 +39,7 @@ class AdminController extends Controller
             $products = new Products();
 
             return view('admin.products', [
-                'products' => $products->all()
+                'products' => $products->paginate(10)
             ]);
         }
 
@@ -71,7 +71,7 @@ class AdminController extends Controller
             $users = new User();
 
             return view('admin.users', [
-                'users' => $users->all()
+                'users' => $users->paginate(10)
             ]);
         }
 

@@ -11,15 +11,17 @@
         @foreach($products as $key => $product)
 
             <div class="card flex flex-col justify-between bg-gray-50">
-                <h2>{{ $product->name }}</h2>
-
                 <div>
+                    <h2>{{ $product->name }}</h2>
+                </div>
+
+                <div class="py-4">
                     @foreach ((array)json_decode($product->images) as $item)
                         @php
                             if ( strpos($item, 'svg') ) {
                                 echo $item;
                             }else {
-                                echo "<img src='".$item."' alt='".$product->name."'>";
+                                echo "<img src='".$item."' alt='".$product->name." class='h-min'>";
                             }
                         @endphp
                     @endforeach
