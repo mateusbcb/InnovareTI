@@ -19,7 +19,7 @@
                     <th>Telefone</th>
                     <th>Admin</th>
                     <th>data Criação</th>
-                    <th>data Atualização</th>
+                    <th>Ultima Atualização</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -30,8 +30,24 @@
                         <td>{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>rua 1 n 99, SP - Brasil</td>
-                        <td>(99) 99999-9999</td>
+                        <td>
+                            @if($user->address != null)
+                                @php
+                                    foreach (json_decode($user->address) as $endereco) {
+                                        echo $endereco->Logradouro . ', ' . $endereco->Numero .' '. $endereco->Bairo .' '.$endereco->Estado;
+                                    }
+                                @endphp
+                            @else
+                                Nenhum Endereço
+                            @endif
+                        </td>
+                        <td>
+                            @if($user->phone != null)
+                                {{ $user->phone }}
+                            @else
+                                (__) _____-____
+                            @endif
+                        </td>
                         <td>
                             @if ($user->admin == 0)
                                 <span class="badge badge-secondary">
@@ -112,7 +128,7 @@
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: solid/chevron-right -->
                                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                                                     </svg>
                                                 </a>
                                             @else
@@ -121,7 +137,7 @@
                                                     <span class="sr-only">Next</span>
                                                     <!-- Heroicon name: solid/chevron-right -->
                                                     <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                                                     </svg>
                                                 </a>
                                             @endif

@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="card">
-                    <h4>Pedidos aguardando reembolso</h4>
+                    <h4>Aguardando Reembolso</h4>
                     <div class="absolute bg-slate-800 bg-opacity-20 text-white mx-auto  p-28 z-50">
                         {{ count( $requests->where('user_id', auth()->user()->id)->where('status', 2)->get() ) }}
                     </div>
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="card">
-                    <h4>Pedidos recebidos</h4>
+                    <h4>Pedidos de Recebidos</h4>
                     <div class="absolute bg-slate-800 bg-opacity-20 text-white mx-auto  p-28 z-50">
                         {{ count( $requests->where('user_id', auth()->user()->id)->where('status', 1)->get() ) }}
                     </div>
