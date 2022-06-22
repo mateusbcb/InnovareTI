@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="text-center">
-        <h1>Admin - Home</h1>
+        <h1>Admin - Dashboard</h1>
     </div>
 
     <div class="m-10 p-10 grid space-x-8 space-y-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -100,6 +100,7 @@
     </div>
 
     <div class="m-10 p-10 grid space-x-8 space-y-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+
         <div class="card ml-8 mt-8 mb-0 mr-0 flex flex-col justify-between">
             <div>
                 <h3>Valor total em produtos</h3>
@@ -151,6 +152,7 @@
                 @endphp
             </div>
         </div>
+
     </div>
 
 @endsection

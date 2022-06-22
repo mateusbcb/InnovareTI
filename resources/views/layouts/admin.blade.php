@@ -10,7 +10,7 @@
 
                 <ul class="mt-5 ml-3">
                     <li class="space-y-4">
-                        <a href="{{ route('dashboard') }}">Home</a>
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                     <li>
                         <a href="{{ route('admin.products') }}">Produtos</a>

@@ -20,7 +20,7 @@ class AdminController extends Controller
             $products = new Products();
             $users = new User();
 
-            return view('admin.index', [
+            return view('admin.dashboard', [
                 'products' => $products,
                 'requests' => $requests,
                 'users'    => $users,
